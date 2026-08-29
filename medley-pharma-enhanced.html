@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medley Pharmaceuticals - Advancing Healthcare Globally</title>
+    <meta name="description" content="Medley Pharmaceuticals: Leading pharmaceutical innovation with 50+ years of excellence, 100+ products, and global presence in 50+ countries.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #0052a3;
+            --primary-light: #e8f0ff;
+            --secondary: #00a651;
+            --secondary-light: #e8f5e9;
+            --accent: #ff6b35;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --text-lighter: #999999;
+            --border-light: #e8e8e8;
+            --bg-light: #f9fafb;
+            --bg-lighter: #f0f4f9;
+            --white: #ffffff;
+            --success: #00a651;
+            --warning: #ff9800;
+            --danger: #f44336;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes slideDownIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes borderFlow {
+            0% {
+                border-color: var(--primary);
+            }
+            50% {
+                border-color: var(--secondary);
+            }
+            100% {
+                border-color: var(--primary);
+            }
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            animation: slideDownIn 0.6s ease-out;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -1px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 50%, #003d7a 100%);
+            color: var(--white);
+            padding: 140px 2rem 100px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,0,0,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: slideInUp 0.8s ease-out;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.98;
+            animation: slideInUp 0.8s ease-out 0.15s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero .btn {
+            padding: 1.1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            background: #f0f4f9;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            border: 2px solid var(--white);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-4px);
+            border-color: var(--white);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2s ease-in-out infinite;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.5rem;
+            z-index: 2;
+        }
+
+        /* ==================== SECTIONS ==================== */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 100px 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* ==================== STATS SECTION ==================== */
+        .stats {
+            background: linear-gradient(135deg, var(--bg-lighter) 0%, #e8f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 166, 81, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-out;
+            cursor: pointer;
+        }
+
+        .stat-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .stat-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: countUp 0.8s ease-out;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* ==================== CAPABILITIES ==================== */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            animation: slideInUp 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .capability-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .capability-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .capability-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .capability-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .capability-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.12);
+            transform: translateY(-10px);
+        }
+
+        .capability-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light), #e8f5e9);
+            border-radius: 12px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .capability-card:hover .capability-icon {
+            transform: scale(1.15) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.3);
+        }
+
+        .capability-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .capability-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .capability-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .capability-card a:hover {
+            gap: 1rem;
+            color: var(--primary-dark);
+        }
+
+        /* ==================== PRODUCTS SECTION ==================== */
+        .products-section {
+            background: var(--white);
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .products-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInUp 0.6s ease-out 0.1s both;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--bg-light);
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 25px 60px rgba(0, 102, 204, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .product-placeholder {
+            background: linear-gradient(135deg, #e8f0ff 0%, #e8f5e9 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            color: var(--text-dark);
+        }
+
+        .product-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .product-specs {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .product-spec {
+            color: var(--text-lighter);
+            font-weight: 600;
+        }
+
+        .product-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .product-card a:hover {
+            gap: 1rem;
+        }
+
+        /* ==================== TIMELINE ==================== */
+        .timeline-section {
+            background: linear-gradient(135deg, var(--bg-lighter) 0%, #f0f9ff 100%);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .timeline-item:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .timeline-item:nth-child(3n) {
+            animation-delay: 0.2s;
+        }
+
+        .timeline-item:nth-child(4n) {
+            animation-delay: 0.3s;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .timeline-year {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ==================== MANUFACTURING PROCESS ==================== */
+        .manufacturing {
+            background: var(--white);
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            animation: slideInUp 0.6s ease-out;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid var(--border-light);
+        }
+
+        .process-step:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .process-step:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .process-step:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .process-step:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .process-step:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .process-step:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.2);
+            border-color: var(--primary);
+        }
+
+        .process-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .process-arrow {
+            display: none;
+            font-size: 2rem;
+            color: var(--primary);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @media (min-width: 769px) {
+            .process-flow {
+                grid-template-columns: repeat(6, 1fr);
+                align-items: flex-start;
+            }
+
+            .process-step:not(:last-child)::after {
+                content: '→';
+                position: absolute;
+                right: -2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 2rem;
+                color: var(--primary);
+                animation: pulse 1.5s ease-in-out infinite;
+            }
+        }
+
+        /* ==================== R&D SECTION ==================== */
+        .rd-section {
+            background: linear-gradient(135deg, #f0f4f9 0%, #e8f5e9 100%);
+        }
+
+        .rd-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .rd-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .rd-card:nth-child(2) {
+            animation-delay: 0.1s;
+            border-left-color: var(--secondary);
+        }
+
+        .rd-card:nth-child(3) {
+            animation-delay: 0.2s;
+            border-left-color: var(--accent);
+        }
+
+        .rd-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .rd-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rd-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .rd-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== CAREERS SECTION ==================== */
+        .careers {
+            background: linear-gradient(135deg, #e8f0ff 0%, #f0f4f9 100%);
+        }
+
+        .career-opportunities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .career-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-out;
+            cursor: pointer;
+        }
+
+        .career-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .career-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .career-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .career-card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .career-card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .career-card:nth-child(7) {
+            animation-delay: 0.6s;
+        }
+
+        .career-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .career-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .career-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .career-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #003d7a 100%);
+            color: var(--white);
+            padding: 80px 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 80px 2rem;
+            animation: slideInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            opacity: 0.98;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== CONTACT FORM ==================== */
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-details h4 {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-light);
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.4);
+        }
+
+        .form-message {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--white);
+            padding: 80px 2rem 30px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.9rem;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .footer-col:nth-child(2) li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .footer-col:nth-child(2) li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-disclaimer {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: 100% !important;
+                margin-left: 60px !important;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 2px solid var(--primary);
+                z-index: 999;
+            }
+
+            .hero {
+                padding: 100px 2rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section {
+                padding: 60px 2rem;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .rd-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .career-opportunities {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-section {
+                margin: 60px 1rem;
+                padding: 40px 1.5rem;
+            }
+
+            .footer-content {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-cta {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 60px 1rem 40px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capability-card {
+                padding: 1.5rem;
+            }
+
+            .section {
+                padding: 40px 1rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ==================== UTILITY ==================== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.4);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        .success-message {
+            padding: 1.5rem;
+            background: #e8f5e9;
+            color: #00a651;
+            border: 2px solid #00a651;
+            border-radius: 8px;
+            margin-top: 1rem;
+            animation: slideInUp 0.5s ease-out;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">MEDLEY</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#rd">R&D</a></li>
+                <li><a href="#manufacturing">Manufacturing</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-cta" onclick="scrollToSection('contact')">Get In Touch</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Advancing Healthcare. Improving Lives Globally.</h1>
+            <p>Medley Pharmaceuticals is a science-driven global pharmaceutical leader committed to developing innovative treatments that transform patient outcomes across therapeutic areas.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Explore Products</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Leading the Industry</h2>
+                <p>Decades of pharmaceutical excellence and innovation</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Product Portfolio</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Talented Professionals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="section capabilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Capabilities</h2>
+                <p>End-to-end pharmaceutical expertise</p>
+            </div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">💊</div>
+                    <h3>Diverse Products</h3>
+                    <p>Comprehensive portfolio of formulations across oncology, cardiology, gastroenterology, anti-infectives, and specialty care therapeutic areas.</p>
+                    <a href="#products">Explore →</a>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🔬</div>
+                    <h3>R&D Excellence</h3>
+                    <p>State-of-the-art research facilities and world-class scientific talent driving innovation in drug development and formulation technology.</p>
+                    <a href="#rd">Learn more →</a>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">⚙️</div>
+                    <h3>Manufacturing</h3>
+                    <p>Advanced manufacturing facilities with cutting-edge technology, rigorous quality standards, and full regulatory compliance across all operations.</p>
+                    <a href="#manufacturing">Discover →</a>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🌍</div>
+                    <h3>Global Presence</h3>
+                    <p>Strong operations and strategic partnerships across North America, Europe, Asia-Pacific, Latin America, and emerging markets worldwide.</p>
+                    <a href="#global">View →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Product Portfolio</h2>
+                <p>Innovative pharmaceutical solutions across major therapeutic areas</p>
+            </div>
+            
+            <div class="products-header">
+                <div class="products-filters">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                    <button class="filter-btn" onclick="filterProducts('cardiology')">Cardiology</button>
+                    <button class="filter-btn" onclick="filterProducts('oncology')">Oncology</button>
+                    <button class="filter-btn" onclick="filterProducts('gastro')">Gastroenterology</button>
+                    <button class="filter-btn" onclick="filterProducts('anti-infectives')">Anti-Infectives</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Journey</h2>
+                <p>Milestones in pharmaceutical innovation and growth</p>
+            </div>
+            <div class="timeline" id="timeline">
+                <!-- Timeline items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Process -->
+    <section class="section manufacturing" id="manufacturing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Manufacturing Excellence</h2>
+                <p>Rigorous process from raw materials to quality-assured finished products</p>
+            </div>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-title">Raw Materials</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-title">Processing</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-title">Formulation</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-title">Quality Control</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <div class="process-title">Packaging</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">06</div>
+                    <div class="process-title">Distribution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Section -->
+    <section class="section rd-section" id="rd">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research & Development</h2>
+                <p>Science-driven innovation at the core of our mission</p>
+            </div>
+            <div class="rd-grid">
+                <div class="rd-card">
+                    <div class="rd-icon">🔍</div>
+                    <h3>Drug Discovery</h3>
+                    <p>Advanced screening technologies and molecular research programs identifying novel therapeutic compounds for unmet medical needs.</p>
+                </div>
+                <div class="rd-card">
+                    <div class="rd-icon">🧪</div>
+                    <h3>Formulation Development</h3>
+                    <p>Cutting-edge formulation expertise optimizing bioavailability, stability, and patient compliance across multiple dosage forms.</p>
+                </div>
+                <div class="rd-card">
+                    <div class="rd-icon">📊</div>
+                    <h3>Clinical Research</h3>
+                    <p>Rigorous preclinical and clinical evaluation ensuring safety, efficacy, and regulatory compliance for all product candidates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence Section -->
+    <section class="section" id="global" style="background: linear-gradient(135deg, var(--bg-lighter) 0%, #f0f9ff 100%);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Global Presence</h2>
+                <p>Serving patients and healthcare professionals worldwide</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="capability-card">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌎</div>
+                    <h3>Americas</h3>
+                    <p>Strong presence in North America and expanding operations in South American markets with established distribution networks.</p>
+                </div>
+                <div class="capability-card">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
+                    <h3>Europe</h3>
+                    <p>Significant operations across EU member states with manufacturing facilities, regulatory expertise, and established partnerships.</p>
+                </div>
+                <div class="capability-card">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌏</div>
+                    <h3>Asia-Pacific</h3>
+                    <p>Strategic presence in India, China, Japan, and Southeast Asia with growing market penetration and manufacturing capacity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section class="section careers" id="careers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Build Your Career With Us</h2>
+                <p>Join our team of dedicated pharmaceutical professionals</p>
+            </div>
+            <div class="career-opportunities">
+                <div class="career-card">
+                    <div class="career-emoji">🔬</div>
+                    <h3>Research & Development</h3>
+                    <p>Lead drug discovery, formulation development, and innovative research programs advancing pharmaceutical science.</p>
+                </div>
+                <div class="career-card">
+                    <div class="career-emoji">⚙️</div>
+                    <h3>Manufacturing</h3>
+                    <p>Operations, quality assurance, and process engineering roles ensuring excellence in pharmaceutical production.</p>
+                </div>
+                <div class="career-card">
+                    <div class="career-emoji">✓</div>
+                    <h3>Quality & Compliance</h3>
+                    <p>Regulatory affairs, quality control, and compliance specialists ensuring highest pharmaceutical standards.</p>
+                </div>
+                <div class="career-card">
+                    <div class="career-emoji">💼</div>
+                    <h3>Sales & Marketing</h3>
+                    <p>Commercial professionals driving product adoption and market expansion across therapeutic areas.</p>
+                </div>
+                <div class="career-card">
+                    <div class="career-emoji">📦</div>
+                    <h3>Supply Chain</h3>
+                    <p>Logistics, procurement, and supply chain professionals optimizing product delivery and efficiency.</p>
+                </div>
+                <div class="career-card">
+                    <div class="career-emoji">💻</div>
+                    <h3>IT & Digital</h3>
+                    <p>Software engineers, data analysts, and digital transformation specialists modernizing pharmaceutical operations.</p>
+                </div>
+                <div class="career-card">
+                    <div class="career-emoji">👥</div>
+                    <h3>Corporate Functions</h3>
+                    <p>Finance, HR, legal, and administrative professionals supporting business operations and growth initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="container">
+        <div class="cta-section">
+            <h2>Ready to Connect With Medley?</h2>
+            <p>Explore partnership opportunities, career possibilities, or learn how our solutions can benefit your organization.</p>
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">Get In Touch Now</button>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Medley</h2>
+                <p>We're here to answer your questions and explore opportunities</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Headquarters</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 (0) 22 6648 3000</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@medleylab.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Website</h4>
+                            <p>www.medleylab.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleContactForm(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiry">Type of Inquiry</label>
+                        <select id="inquiry" name="inquiry" required>
+                            <option value="">Select an option</option>
+                            <option value="partnership">Business Partnership</option>
+                            <option value="distribution">Distribution & Supply</option>
+                            <option value="careers">Career Opportunity</option>
+                            <option value="general">General Information</option>
+                            <option value="product">Product Information</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                    <div class="form-message">✓ Frontend prototype only - No data transmission</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#rd">Research & Development</a></li>
+                        <li><a href="#manufacturing">Manufacturing</a></li>
+                        <li><a href="#global">Global Presence</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">All Products</a></li>
+                        <li><a href="#">Therapeutic Areas</a></li>
+                        <li><a href="#">Product Safety</a></li>
+                        <li><a href="#">Pharmacovigilance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opportunities</h4>
+                    <ul>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li><a href="#">Collaboration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Compliance</a></li>
+                        <li><a href="#">Governance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Medley Pharmaceuticals Limited. All rights reserved.</p>
+                <p class="footer-disclaimer">🔬 Independent website redesign concept created for demonstration purposes. Not affiliated with or operated by Medley Pharmaceuticals Limited.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // ==================== DATA ====================
+        const products = [
+            {
+                name: "Amlodipine Besylate",
+                category: "Cardiology",
+                filter: "cardiology",
+                dosage: "5mg, 10mg",
+                type: "Tablet",
+                description: "Calcium channel blocker for hypertension and angina management with proven efficacy."
+            },
+            {
+                name: "Atorvastatin Calcium",
+                category: "Cardiology",
+                filter: "cardiology",
+                dosage: "10mg, 20mg, 40mg, 80mg",
+                type: "Tablet",
+                description: "Potent statin for cholesterol reduction and cardiovascular disease prevention."
+            },
+            {
+                name: "Metoprolol Succinate",
+                category: "Cardiology",
+                filter: "cardiology",
+                dosage: "25mg, 50mg, 100mg",
+                type: "Tablet",
+                description: "Beta-blocker for hypertension, angina, and heart failure management."
+            },
+            {
+                name: "Docetaxel",
+                category: "Oncology",
+                filter: "oncology",
+                dosage: "20mg/0.5mL, 80mg/2mL",
+                type: "Injection",
+                description: "Taxane chemotherapy agent for breast, prostate, and lung cancer treatment."
+            },
+            {
+                name: "Paclitaxel",
+                category: "Oncology",
+                filter: "oncology",
+                dosage: "100mg/16.7mL",
+                type: "Injection",
+                description: "Microtubule stabilizer for multiple cancer indications and solid tumors."
+            },
+            {
+                name: "Gemcitabine HCl",
+                category: "Oncology",
+                filter: "oncology",
+                dosage: "200mg/10mL, 1g/50mL",
+                type: "Injection",
+                description: "Nucleoside analog for pancreatic, lung, and breast cancer therapy."
+            },
+            {
+                name: "Omeprazole",
+                category: "Gastroenterology",
+                filter: "gastro",
+                dosage: "20mg, 40mg",
+                type: "Capsule",
+                description: "Proton pump inhibitor for GERD, ulcers, and acid-related disorders."
+            },
+            {
+                name: "Pantoprazole Sodium",
+                category: "Gastroenterology",
+                filter: "gastro",
+                dosage: "40mg",
+                type: "Tablet",
+                description: "Long-acting PPI for management of gastric acid-related conditions."
+            },
+            {
+                name: "Metronidazole",
+                category: "Gastroenterology",
+                filter: "gastro",
+                dosage: "200mg, 400mg",
+                type: "Tablet",
+                description: "Antibiotic for H. pylori eradication and anaerobic bacterial infections."
+            },
+            {
+                name: "Levofloxacin",
+                category: "Anti-Infectives",
+                filter: "anti-infectives",
+                dosage: "250mg, 500mg, 750mg",
+                type: "Tablet",
+                description: "Broad-spectrum fluoroquinolone for respiratory and urinary tract infections."
+            },
+            {
+                name: "Amoxicillin-Clavulanate",
+                category: "Anti-Infectives",
+                filter: "anti-infectives",
+                dosage: "250mg/125mg, 500mg/125mg",
+                type: "Tablet",
+                description: "Beta-lactam combination for bacterial infections with beta-lactamase inhibition."
+            },
+            {
+                name: "Azithromycin",
+                category: "Anti-Infectives",
+                filter: "anti-infectives",
+                dosage: "250mg, 500mg",
+                type: "Tablet",
+                description: "Macrolide antibiotic for respiratory and sexually transmitted infections."
+            }
+        ];
+
+        const timeline = [
+            { year: "1975", title: "Medley Founded", desc: "Medley Pharmaceuticals established with vision to advance healthcare through innovation." },
+            { year: "1985", title: "First Plant Expansion", desc: "Established state-of-the-art manufacturing facility in western India." },
+            { year: "1995", title: "International Expansion", desc: "Launched operations in North America and European markets." },
+            { year: "2005", title: "R&D Center Opened", desc: "Inaugurated advanced research and development center for drug discovery." },
+            { year: "2015", title: "100+ Products", desc: "Achieved milestone of 100+ approved pharmaceutical products across therapeutic areas." },
+            { year: "2023", title: "Global Recognition", desc: "Recognized as leading pharmaceutical company in Asia-Pacific region." }
+        ];
+
+        // ==================== DOM MANIPULATION ====================
+        function initializeProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map((product, index) => `
+                <div class="product-card" style="animation-delay: ${index * 0.05}s">
+                    <div class="product-placeholder">💊</div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-desc">${product.description}</div>
+                        <div class="product-specs">
+                            <div class="product-spec">${product.dosage}</div>
+                            <div class="product-spec">•</div>
+                            <div class="product-spec">${product.type}</div>
+                        </div>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function initializeTimeline() {
+            const timelineEl = document.getElementById('timeline');
+            timelineEl.innerHTML = timeline.map((item, index) => `
+                <div class="timeline-item" style="animation-delay: ${index * 0.08}s">
+                    <div class="timeline-content">
+                        <div class="timeline-year">${item.year}</div>
+                        <div class="timeline-title">${item.title}</div>
+                        <div class="timeline-desc">${item.desc}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                    card.style.animation = 'slideInUp 0.6s ease-out';
+                } else {
+                    const productCategory = card.querySelector('.product-category').textContent.toLowerCase().replace(/\s/g, '-');
+                    card.style.display = productCategory === category ? 'block' : 'none';
+                }
+            });
+        }
+
+        // ==================== NAVIGATION ====================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // ==================== SMOOTH SCROLL ====================
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // ==================== SCROLL TO TOP ====================
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==================== FORM HANDLING ====================
+        function handleContactForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Simulate form submission with success message
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '✓ Sent Successfully!';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                const successMsg = document.createElement('div');
+                successMsg.className = 'success-message';
+                successMsg.innerHTML = '✓ Thank you for your inquiry! This is a prototype form - no data was transmitted.';
+                form.appendChild(successMsg);
+                
+                form.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+
+                setTimeout(() => successMsg.remove(), 4000);
+            }, 800);
+        }
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeProducts();
+            initializeTimeline();
+        });
+
+        // ==================== INTERSECTION OBSERVER ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.capability-card, .product-card, .career-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
